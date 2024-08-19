@@ -1,4 +1,4 @@
-package ui_code
+package user_interface 
 
 
 import (
@@ -11,7 +11,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func init() {
 	a := app.New()
 	w := a.NewWindow("Login Form")
 	w.Resize(fyne.NewSize(600, 400)) // Set the window size to 600x400
