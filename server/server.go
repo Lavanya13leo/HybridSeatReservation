@@ -16,10 +16,7 @@ var (
 	port = flag.Int("port", 50051, "The server port")
 )
 
-
-
 // SayHello implements helloworld.GreeterServer
-
 
 func main() {
 	flag.Parse()
@@ -36,7 +33,5 @@ func main() {
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
-
-
 
 }

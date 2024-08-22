@@ -1,9 +1,13 @@
 module hybridseatreservation
 
-go 1.20
+go 1.21
+
+toolchain go1.21.6
 
 require (
 	fyne.io/fyne/v2 v2.5.0
+	github.com/lib/pq v1.10.9
+	golang.org/x/crypto v0.26.0
 	google.golang.org/grpc v1.65.0
 	google.golang.org/grpc/examples v0.0.0-20240820051202-6a5a283b699d
 	google.golang.org/protobuf v1.34.2
