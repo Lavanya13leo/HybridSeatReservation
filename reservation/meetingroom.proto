@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package=".";
+package reservation;
+
+service HybridReservationService {
+    rpc Authenticate (AuthRequest) returns (AuthResponse) {}
+    rpc MeetingRoomReservation (MrRequest) returns (MrResponse){}
+}
+
+message AuthResponse {
+    uint64 employeeid = 1;
+}
+
+message AuthRequest {
+}
+
+message MrRequest {
+    uint32 blgNumber = 1;
+    uint32 floorNumber = 2;
+    string meetingRoom = 3;
+    uint64 startDate = 4;
+    uint64 endDate = 5;
+}
+
+message MrResponse {
+}
