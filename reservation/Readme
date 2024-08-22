@@ -1,2 +1,2 @@
- protoc -I=/Users/lavms/POC/HybridSeatReservation/Project/  --go_out=/Users/lavms/POC/HybridSeatReservation/Project/server/reservation /Users/lavms/POC/HybridSeatReservation/Project/server/reservation/reservation.proto
- protoc -I=/Users/lavms/POC/HybridSeatReservation/Project/  --go-grpc_out=/Users/lavms/POC/HybridSeatReservation/Project/server/reservation /Users/lavms/POC/HybridSeatReservation/Project/server/reservation/reservation.proto
+protoc -I=/Users/lavms/POC/HybridSeatReservation  --go_out=/Users/lavms/POC/HybridSeatReservation/reservation  /Users/lavms/POC/HybridSeatReservation/reservation/meetingroom.proto 
+protoc -I=/Users/lavms/POC/HybridSeatReservation  --go-grpc_out=/Users/lavms/POC/HybridSeatReservation/reservation  /Users/lavms/POC/HybridSeatReservation/reservation/meetingroom.proto 

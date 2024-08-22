@@ -20,13 +20,13 @@ func init() {
 	sv = &server{}
 }
 
-func Server() *server{
+func Server() *server {
 	return sv
 }
 
 func (s *server) Authenticate(ctx context.Context, areq *pb.AuthRequest) (ares *pb.AuthResponse, err error) {
 	md, ok := metadata.FromIncomingContext(ctx)
-	if !ok{
+	if !ok {
 		return nil, fmt.Errorf("Failed to get metadata: %v", err)
 	}
 	username := md.Get("username")
@@ -40,6 +40,11 @@ func (s *server) Authenticate(ctx context.Context, areq *pb.AuthRequest) (ares *
 	return &pb.AuthResponse{Employeeid: 1}, nil
 }
 
-func (s *server) MeetingRoomReservation(context.Context, *pb.MrRequest) (ares *pb.MrResponse, err error) {
-	return nil, status.Errorf(codes.Unimplemented, "method MeetingRoomReservation not implemented")
+func (s *server) MeetingRoomReservation(ctx context.Context, req *pb.MrRequest) (ares *pb.MrResponse, err error) {
+	fmt.Println("bglnum = ", req.GetBlgNumber())
+	fmt.Println("floor number = ", req.GetFloorNumber())
+	fmt.Println("date= ", req.GetDate())
+	fmt.Println("end = ", req.GetEndTime())
+	fmt.Println("start = ", req.GetStartTime())
+	return nil, status.Errorf(codes.Unimplemented, "method is implemented")
 }

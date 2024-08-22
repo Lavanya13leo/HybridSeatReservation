@@ -19,8 +19,9 @@ message MrRequest {
     uint32 blgNumber = 1;
     uint32 floorNumber = 2;
     string meetingRoom = 3;
-    uint64 startDate = 4;
-    uint64 endDate = 5;
+    string date = 4;
+    string startTime = 5;
+    string endTime = 6;
 }
 
 message MrResponse {

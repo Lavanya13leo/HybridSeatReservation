@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             v3.21.12
-// source: server/reservation/reservation.proto
+// source: reservation/meetingroom.proto
 
 package __
 
@@ -143,5 +143,5 @@ var HybridReservationService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "server/reservation/reservation.proto",
+	Metadata: "reservation/meetingroom.proto",
 }
