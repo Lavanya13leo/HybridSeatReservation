@@ -42,8 +42,10 @@ func DbConnection() (*sql.DB, error) {
 		fmt.Println("Initializing connection...")
 		connStr := "user=brangapp dbname=postgres sslmode=disable"
 		db, err = sql.Open("postgres", connStr)
+		err = db.Ping()
 		if err != nil {
 			log.Fatalf("Failed to connect to the database: %v", err)
+			db = nil
 		} else {
 			fmt.Println("Database connection initialized successfully")
 		}
@@ -56,6 +58,10 @@ func GetConnection() (*sql.DB, error) {
 	// var y error
 	var d, e = DbConnection()
 	fmt.Println("fetching instance GetConnection", d, e)
+	if d == nil {
+		return nil, fmt.Errorf("db connection is not initialized")
+
+	}
 	return d, e
 }
 
@@ -65,7 +71,7 @@ func CheckMeetingRoomAvailability(empid int, bldno, floor uint32, mroom string, 
 	if err != nil {
 		return false, fmt.Errorf("failed to get database connection: %v", err)
 	}
-	defer db1.Close()
+	//defer db1.Close()
 
 	query := `SELECT id, empid, bldno, floor, mroom, booking_date, start_time, end_time 
 		  FROM reserveMeetingRoom 
@@ -102,7 +108,7 @@ func CheckMeetingRoomAvailability(empid int, bldno, floor uint32, mroom string, 
 
 		r_et := parseDateTime(r_end_time, "15:04:05")
 		fmt.Println(r_et, "-->check etime")
-		if r_bldno == bldno && r_floor == floor && r_mroom == mroom && r_bdate == booking_date && r_st == start_time && r_et == end_time {
+		if uint32(r_bldno) == bldno && uint32(r_floor) == floor && r_mroom == mroom && r_bdate == booking_date && r_st == start_time && r_et == end_time {
 			return false, fmt.Errorf("matching record present: %v", err)
 
 		}
