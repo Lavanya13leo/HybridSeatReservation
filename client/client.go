@@ -137,33 +137,6 @@ func showMeetingForm(a fyne.App) {
 	floorSelect := widget.NewSelect(floorOptions, func(s string) {
 		fmt.Println("Floor selected:", s)
 	})
-	/*
-		fmt.Printf("selected = %s %s", firstSelected, secondSelected)
-		var options []string
-		// Logic to determine options based on selections
-		if buildingSelect.Selected == "1" && floorSelect.Selected == "1" {
-			options = []string{"bgl1_1_room1", "bgl1_1_room2", "bgl1_1_room3"}
-		} else if buildingSelect.Selected == "1" && floorSelect.Selected == "2" {
-			options = []string{"bgl1_2_room1", "bgl1_2_room2", "bgl1_2_room3"}
-		} else if buildingSelect.Selected == "1" && floorSelect.Selected == "3" {
-			options = []string{"bgl1_3_room1", "bgl1_3_room2", "bgl1_3_room3"}
-		} else if buildingSelect.Selected == "2" && floorSelect.Selected == "1" {
-			options = []string{"bgl2_1_room1", "bgl2_1_room2", "bgl2_1_room3"}
-		} else if buildingSelect.Selected == "2" && floorSelect.Selected == "2" {
-			options = []string{"bgl2_2_room1", "bgl2_2_room2", "bgl2_2_room3"}
-		} else if buildingSelect.Selected == "2" && floorSelect.Selected == "3" {
-			options = []string{"bgl2_3_room1", "bgl2_3_room2", "bgl2_3_room3"}
-		} else if buildingSelect.Selected == "3" && floorSelect.Selected == "1" {
-			options = []string{"bgl3_1_room1", "bgl3_1_room2", "bgl3_1_room3"}
-		} else if buildingSelect.Selected == "3" && floorSelect.Selected == "2" {
-			options = []string{"bgl3_2_room1", "bgl3_2_room2", "bgl3_2_room3"}
-		} else if buildingSelect.Selected == "3" && floorSelect.Selected == "3" {
-			options = []string{"bgl3_3_room1", "bgl3_3_room2", "bgl3_3_room3"}
-		}
-		meetingSelect := widget.NewSelect(options, func(s string) {
-			fmt.Println("Floor selected:", s)
-		})
-	*/
 
 	options := []string{}
 	for i := 1; i <= 3; i++ {
@@ -261,7 +234,7 @@ func showMeetingForm(a fyne.App) {
 			} else {
 				fmt.Println("err = %v", err)
 
-				dialog.ShowInformation("Meeting Room Reservation failed", "Please select differnt slot", w)
+				dialog.ShowInformation("Meeting Room Reservation failed", "Please select different slot", w)
 			}
 		},
 		OnCancel: func() {
